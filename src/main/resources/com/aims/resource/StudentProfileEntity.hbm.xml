@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 Julai 2010 11:40:18 AM by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.aims.entity.StudentProfileEntity" 
+		table="StudentProfileEntity" catalog="AimsDB">
+        <id name="id" >
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" >
+            <column name="firstName"  />
+        </property>
+        <property name="lastName" >
+            <column name="lastName"  />
+        </property>
+        <property name="usn" >
+            <column name="usn" />
+        </property>
+        <property name="emailId" >
+            <column name="emailId"  />
+        </property>
+        <property name="gender" >
+            <column name="gender" />
+        </property>
+        <property name="mobileNumber" >
+            <column name="mobileNumber"  />
+        </property>
+        <property name="alternateNumber" >
+            <column name="alternateNumber"  />
+        </property>     
+           <property name="createdDate" >
+            <column name="createdDate" length="45" not-null="true" />
+        </property>
+        <property name="modifiedDate" >
+            <column name="modifiedDate" length="45" not-null="true" />
+        </property>
+        <property name="address" >
+            <column name="address"  />
+        </property>
+        <property name="yearofjoining" >
+            <column name="yearofjoining"  />
+        </property>
+        <property name="yearofpassing" >
+            <column name="yearofpassing"  />
+        </property>
+             <property name="subject" >
+            <column name="subject" />
+        </property>
+        <property name="sem" >
+            <column name="sem"  />
+        </property>
+        <property name="totalclass" >
+            <column name="totalclass" />
+        </property>
+        <property name="attendedclass" >
+            <column name="attendedclass"  />
+        </property>
+        <property name="percentage" >
+            <column name="percentage"  />
+             </property>
+    </class>
+</hibernate-mapping>

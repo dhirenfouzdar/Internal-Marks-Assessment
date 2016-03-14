@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 Julai 2010 11:40:18 AM by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.aims.entity.IAEntity" 
+		table="IAEntity" catalog="AimsDB">
+        <id name="id" >
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="usn" >
+            <column name="usn" />
+        </property>
+        <property name="sem" >
+            <column name="sem" />
+        </property>
+        <property name="test1" >
+            <column name="test1"  />
+        </property>
+        <property name="test2" >
+            <column name="test2" />
+        </property>
+        <property name="test3" >
+            <column name="test3"  />
+        </property>
+        <property name="subject" >
+            <column name="subject"  />
+        </property>     
+        <property name="yearofpassing" >
+            <column name="yearofpassing" />
+        </property>
+         <property name="averageMarks" >
+            <column name="averageMarks" />
+        </property>
+           <property name="createdDate" >
+            <column name="createdDate" length="45" not-null="true" />
+        </property>
+           <property name="modifiedDate" >
+            <column name="modifiedDate" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

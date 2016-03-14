@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 
+	2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd"> -->
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="" />
+	<package name="default" namespace="/"
+		extends="struts-default,json-default,action-default">
+	
+		<action name="login" class="com.aims.action.LoginAction">
+			<result name="adminsuccess">pages/adminHome.jsp</result>
+			<result name="lecturerSuccess">pages/lecturerHome.jsp</result>
+			<result name="studentSuccess">pages/studentHome.jsp</result>
+			<result name="firstTimeLoginSuccess">pages/lectureProfile.jsp</result>
+			<result name="firstTimeLoginSuccess">pages/studentProfile.jsp</result>
+			<result name="input">pages/index.jsp</result>
+			<result name="error">pages/index.jsp</result>
+		</action>
+		
+		<action name="empgen" class="com.aims.action.SessionValidateAction">
+			<result name="success">pages/adminHome.jsp</result>
+			<result name="input">pages/adminHome.jsp</result>
+			<result name="error">pages/adminHome.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>	
+		
+		<action name="stugen" class="com.aims.action.SessionValidateAction">
+			<result name="success">pages/adminstudHome.jsp</result>
+			<result name="input">pages/adminstudHome.jsp</result>
+			<result name="error">pages/adminstudHome.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		<action name="lectureProf" class="com.aims.action.SessionValidateAction">
+			<result name="success">pages/lectureProfile.jsp</result>
+			<result name="input">pages/lectureProfile.jsp</result>
+			<result name="error">pages/lectureProfile.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action> 
+		<action name="studentProf" class="com.aims.action.SessionValidateAction">
+			<result name="success">pages/studentProfile.jsp</result>
+			<result name="input">pages/studentProfile.jsp</result>
+			<result name="error">pages/studentProfile.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action> 
+
+		<action name="studenteditpro" class="com.aims.action.SessionValidateAction">
+			<result name="success">pages/studentEditprof.jsp</result>
+			<result name="input">pages/studentEditprof.jsp</result>
+			<result name="error">pages/studentEditprof.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>	
+		<action name="studentattend" class="com.aims.action.SessionValidateAction">
+			<result name="success">pages/studentHome.jsp</result>
+			<result name="input">pages/studentHome.jsp</result>
+			<result name="error">pages/studentHome.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		
+		<action name="lecturecalavg"  class="com.aims.action.SubjectAction" method="displaylectureSubject">
+			<result name="success">pages/lecturerHome.jsp</result>
+			<result name="input">pages/lecturerHome.jsp</result>
+			<result name="error">pages/lecturerHome.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		
+		<action name="lectureInternl" class="com.aims.action.SubjectAction" method="displaylectureSubject">
+			<result name="success">pages/lecturerinternals.jsp</result>
+			<result name="input">pages/lecturerinternals.jsp</result>
+			<result name="error">pages/lecturerinternals.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		
+		<action name="addsubject" class="com.aims.action.SubjectAction" method="displaylectureProfile">
+			<result name="success">pages/addsubjects.jsp</result>
+			<result name="input">pages/addsubjects.jsp</result>
+			<result name="error">pages/addsubjects.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		
+		<action name="lectureeditprof" class="com.aims.action.SessionValidateAction">
+			<result name="success">pages/lecturereditprofile.jsp</result>
+			<result name="input">pages/lecturereditprofile.jsp</result>
+			<result name="error">pages/lecturereditprofile.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>		
+
+														
+		<action name="logout" class="com.aims.action.LogoutAction">
+			<result name="success">pages/index.jsp</result>
+			<result name="input">pages/index.jsp</result>
+			<result name="error">pages/index.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>			
+		
+		<action name="userCredenitail" method="generateCredentials"
+			class="com.aims.action.CreateCredentialsAction">
+			<result name="input">pages/adminHome.jsp</result>
+			<result name="error">pages/adminHome.jsp</result>
+			<result name="success">pages/adminHome.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		<action name="LecturerCredentialsList" method="getLecturerListDetails"
+			class="com.aims.action.JQGridAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="updateLecturerCredentials" method="updateCredentials"
+			class="com.aims.action.CreateCredentialsAction">
+			<result name="input">pages/adminHome.jsp</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="success">pages/adminHome.jsp</result>
+			<result name="sessionError">pages/adminHome.jsp</result>
+		</action>
+			<action name="addStudent" class="com.aims.action.CreateCredentialsAction" method="addStudentDetails">
+			<result name="success">pages/adminstudHome.jsp</result>
+			<result name="input">pages/adminstudHome.jsp</result>
+			<result name="error">pages/adminstudHome.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+			<action name="studentCredentialsList" method="studentListDisplay"
+			class="com.aims.action.JQGridAction">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="updateStudentCredentials" method="updateCredentials"
+			class="com.aims.action.CreateCredentialsAction">
+			<result name="input">pages/adminstudHome.jsp</result>
+			<result name="error" type="json">
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="success">pages/adminstudHome.jsp</result>
+			<result name="sessionError">pages/adminstudHome.jsp</result>
+		</action>
+		
+		<action name="addlectureProfile" method="addLecturerProfile"
+			class="com.aims.action.LectureProfileAction">
+			<result name="input">pages/lectureProfile.jsp</result>
+			<result name="error">pages/lectureProfile.jsp</result>
+			<result name="success">pages/lectureProfile.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		
+		<action name="lectureProfileDetails" method="displaylectureProfile"
+			class="com.aims.action.JQGridAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="updateLecture" method="updateLecturerProfile"
+					class="com.aims.action.LectureProfileAction">
+			<result name="input">pages/lecturereditprofile.jsp</result>
+			<result name="error">pages/lecturereditprofile.jsp</result>
+			<result name="success">pages/lecturereditprofile.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+			
+		<action name="addStuProfile" method="addStudentProfile"
+					class="com.aims.action.StudentProfileAction">
+			<result name="input">pages/studentProfile.jsp</result>
+			<result name="error">pages/studentProfile.jsp</result>
+			<result name="success">pages/studentProfile.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		
+		<action name="studentProfileDetails" method="displayStudentProfile"
+			class="com.aims.action.JQGridAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="updatestudent" method="updateStudentProfile"
+		class="com.aims.action.StudentProfileAction">
+			<result name="success">pages/studentEditprof.jsp</result>
+			<result name="input">pages/studentEditprof.jsp</result>
+			<result name="error">pages/studentEditprof.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		
+		<action name="addStudentProfile" method="updateStudentProfile"
+					class="com.aims.action.StudentProfileAction">
+			<result name="input">pages/lecturereditprofile.jsp</result>
+			<result name="error">pages/lecturereditprofile.jsp</result>
+			<result name="success">pages/lecturereditprofile.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		
+		
+		<action name="studentData" method="getStudentListDetails"
+			class="com.aims.action.StudentListAction">
+			<result name="success">pages/lecturerHome.jsp</result>
+			<result name="input">pages/lecturerHome.jsp</result>
+			<result name="error">pages/lecturerHome.jsp</result>
+			<result name="sessionError">ajaxCall.jsp</result>
+		</action>
+		
+			<action name="studentjsondata" method="getStudentDetails" class="com.aims.action.JQGridAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+			<action name="lectureSubject" method="addLecturerSubject"
+					class="com.aims.action.SubjectAction">
+			<result name="input">pages/addsubjects.jsp</result>
+			<result name="error">pages/addsubjects.jsp</result>
+			<result name="success">pages/addsubjects.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		
+		<action name="lecturerSubjectList" method="displaysubjectList" class="com.aims.action.JQGridAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		
+		<action name="deleteSubject" method="deleteLecturerSubject"
+					class="com.aims.action.SubjectAction">
+			<result name="input">pages/addsubjects.jsp</result>
+			<result name="error">pages/addsubjects.jsp</result>
+			<result name="success">pages/addsubjects.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		
+			<action name="IAEntityData" method="getStudentTestDetails" class="com.aims.action.JQGridAction">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="addMarks" class="com.aims.action.IAAction" method="addStudentSubjectDetails">
+			<result name="success">pages/lecturerinternals.jsp</result>
+			<result name="input">pages/lecturerinternals.jsp</result>
+			<result name="error">pages/lecturerinternals.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		<action name="updateInternals" class="com.aims.action.IAAction" method="updateIAMarks">
+			<result name="success">pages/lecturerinternals.jsp</result>
+			<result name="input">pages/lecturerinternals.jsp</result>
+			<result name="error">pages/lecturerinternals.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		<action name="updateAverage" class="com.aims.action.IAAction" method="calculateAverage">
+			<result name="success">pages/lecturerHome.jsp</result>
+			<result name="input">pages/lecturerHome.jsp</result>
+			<result name="error">pages/lecturerHome.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		<action name="studentInternal" class="com.aims.action.StudentListAction" method="getStudentMarks">
+			<result name="success">pages/studentHome.jsp</result>
+			<result name="input">pages/studentHome.jsp</result>
+			<result name="error">pages/studentHome.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		
+		<action name="updatePassword" class="com.aims.action.ResetPasswordAction" method="updatenewpassword">
+			<result name="success">pages/resetPassword.jsp</result>
+			<result name="input">pages/resetPassword.jsp</result>
+			<result name="error">pages/resetPassword.jsp</result>
+			<result name="sessionError">ajaxCall.jsp</result>
+		</action>
+		
+		<action name="resetstud" class="com.aims.action.SessionValidateAction" >
+			<result name="success">pages/resetPassword.jsp</result>
+			<result name="input">pages/resetPassword.jsp</result>
+			<result name="error">pages/resetPassword.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>
+		
+		<action name="resetletur" class="com.aims.action.SessionValidateAction">
+			<result name="success">pages/resetPasswordletu.jsp</result>
+			<result name="input">pages/resetPasswordletu.jsp</result>
+			<result name="error">pages/resetPasswordletu.jsp</result>
+			<result name="sessionError">pages/index.jsp</result>
+		</action>				
+	</package>
+</struts>

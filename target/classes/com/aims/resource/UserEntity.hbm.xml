@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 Julai 2010 11:40:18 AM by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.aims.entity.UserEntity" 
+		table="UserEntity" catalog="AimsDB">
+        <id name="id" >
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+         <property name="usn" >
+            <column name="usn" length="45" not-null="true" />
+        </property>
+        <property name="password" >
+            <column name="password" length="45" not-null="true" />
+        </property>
+        <property name="usertype" >
+            <column name="usertype" length="45" not-null="true" />
+        </property>
+        <property name="createdDate" >
+            <column name="createdDate" length="45" not-null="true" />
+        </property>
+        <property name="modifiedDate" >
+            <column name="modifiedDate" length="45" not-null="true" />
+        </property>
+        <property name="isFirstTimeLogin" >
+        <column name="isFirstTimeLogin" not-null="true"/>
+        </property>
+        <property name="graduationType" >
+        <column name="graduationType"/>
+        </property>
+        <property name="branch" >
+            <column name="branch" length="45" />
+        </property>
+        <property name="yearOfJoining" >
+            <column name="yearOfJoining"  />
+        </property>
+        <property name="yearOfPassing" >
+            <column name="yearOfPassing"  />
+        </property>
+    </class>
+</hibernate-mapping>
